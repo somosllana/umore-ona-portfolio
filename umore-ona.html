@@ -114,7 +114,7 @@ header.nav{
   height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
-.brand svg{width:34px;height:34px;flex-shrink:0;}
+.brand svg{width:29px;height:34px;flex-shrink:0;}
 .brand span{font-family:'Bagel Fat One',cursive;font-size:1.3rem;color:var(--ink);white-space:nowrap;}
 nav.links{display:flex;align-items:center;gap:28px;}
 nav.links a{
@@ -235,9 +235,10 @@ section{padding:80px 0;}
   color:var(--ink);
 }
 .menu-badge .dot svg{width:32px;height:32px;}
+.menu-badge .mascot-dot svg{width:34px;height:40px;}
 .menu-badge[data-tab="desayunos"] .dot{background:var(--sage-soft);}
 .menu-badge[data-tab="picoteo"] .dot{background:var(--burgundy-soft);}
-.menu-badge[data-tab="cenas"] .dot{background:var(--ink);color:var(--cream);}
+.menu-badge[data-tab="cenas"] .dot{background:var(--burgundy);color:var(--cream);}
 .menu-badge span.label{font-weight:700;font-size:.88rem;}
 .menu-badge.active .dot{transform:scale(1.1) rotate(-4deg);box-shadow:0 10px 20px -8px rgba(36,31,26,.35);}
 .menu-badge.active span.label{color:var(--ink);}
@@ -247,13 +248,13 @@ section{padding:80px 0;}
 .menu-panel.active{display:block;animation:fadein .35s ease;}
 .menu-panel[data-panel="desayunos"]{background:var(--sage-soft);}
 .menu-panel[data-panel="picoteo"]{background:var(--burgundy-soft);}
-.menu-panel[data-panel="cenas"]{background:var(--ink);color:var(--cream);}
+.menu-panel[data-panel="cenas"]{background:var(--burgundy);color:var(--cream);}
 .menu-panel[data-panel="cenas"] .menu-item .name{color:var(--cream);}
-.menu-panel[data-panel="cenas"] .menu-group h3{color:#D9C7A8;}
-.menu-panel[data-panel="cenas"] .menu-item{border-bottom-color:rgba(243,239,228,.18);}
-.menu-panel[data-panel="cenas"] .menu-item .filler{border-bottom-color:rgba(243,239,228,.18);}
-.menu-panel[data-panel="cenas"] .menu-item .desc{color:#C9BFAF;}
-.menu-panel[data-panel="cenas"] .price-pair span{color:#C9BFAF;}
+.menu-panel[data-panel="cenas"] .menu-group h3{color:#F3D9CE;}
+.menu-panel[data-panel="cenas"] .menu-item{border-bottom-color:rgba(243,239,228,.24);}
+.menu-panel[data-panel="cenas"] .menu-item .filler{border-bottom-color:rgba(243,239,228,.24);}
+.menu-panel[data-panel="cenas"] .menu-item .desc{color:#EFC9BE;}
+.menu-panel[data-panel="cenas"] .price-pair span{color:#EFC9BE;}
 @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 .menu-note{
   display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;
@@ -323,25 +324,23 @@ section{padding:80px 0;}
   background:color-mix(in srgb, var(--sage) 22%, transparent);padding:3px 10px;border-radius:100px;
 }
 .loc-card{
-  background:var(--ink);color:var(--cream);border-radius:var(--radius-l);padding:36px;
+  background:var(--burgundy);color:var(--cream);border-radius:var(--radius-l);padding:36px;
   transform:rotate(1deg);
 }
 .loc-card h3{font-family:'Bagel Fat One',cursive;font-size:1.5rem;margin-bottom:16px;color:var(--cream);}
-.loc-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;color:#C9BFAF;font-size:.95rem;}
-.loc-row svg{width:18px;height:18px;color:var(--burgundy);flex-shrink:0;margin-top:2px;}
-:root[data-theme="dark"] .loc-row svg,
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .loc-row svg{color:#F0B3AB;}}
-.loc-row svg{color:#E2948C;}
+.loc-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;color:#F3D9CE;font-size:.95rem;}
+.loc-row svg{width:18px;height:18px;color:var(--cream);flex-shrink:0;margin-top:2px;}
 .loc-card .btn{width:100%;margin-top:10px;border-color:var(--cream);}
 .loc-card .btn-outline{color:var(--cream);}
-.loc-card .btn-outline:hover{background:rgba(243,239,228,.1);}
-.loc-card .btn-primary{border-color:var(--burgundy);}
+.loc-card .btn-outline:hover{background:rgba(243,239,228,.12);}
+.loc-card .btn-primary{background:var(--cream);color:var(--burgundy);border-color:var(--cream);}
+.loc-card .btn-primary:hover{background:#EADFC8;}
 
 /* ---------- FOOTER ---------- */
 footer{border-top:2px solid var(--ink);padding:56px 0 32px;}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:16px;}
 .footer-brand{display:flex;align-items:center;gap:10px;}
-.footer-brand svg{width:30px;height:30px;}
+.footer-brand svg{width:25px;height:30px;}
 .footer-brand span{font-family:'Bagel Fat One',cursive;font-size:1.15rem;}
 .footer-nav{display:flex;gap:28px;flex-wrap:wrap;}
 .footer-nav a{font-size:.92rem;font-weight:600;color:var(--ink-soft);text-decoration:none;}
@@ -384,6 +383,7 @@ footer{border-top:2px solid var(--ink);padding:56px 0 32px;}
   .menu-badge{width:84px;}
   .menu-badge .dot{width:60px;height:60px;}
   .menu-badge .dot svg{width:26px;height:26px;}
+  .menu-badge .mascot-dot svg{width:27px;height:32px;}
   .collage-grid{grid-template-columns:1fr;gap:44px;}
   .collage-item{transform:none !important;margin-top:0 !important;}
   .loc-grid{grid-template-columns:1fr;gap:36px;}
@@ -400,7 +400,7 @@ footer{border-top:2px solid var(--ink);padding:56px 0 32px;}
 <header class="nav">
   <div class="nav-inner">
     <a href="#" class="brand">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 15h16l-1.4 15.2A3 3 0 0 1 22.6 33H17.4a3 3 0 0 1-3-2.8L11 15Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 15h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M27 17c3 .5 5 2 5 4.5S30 25 27 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16 8c-1.2 1.2-1.2 2 0 3.2M20.5 8c-1.2 1.2-1.2 2 0 3.2" stroke="var(--burgundy)" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 64 76" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 15c1.5-3.2 5.8-5.5 14-5.5s12.5 2.3 14 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16.5 19h31" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M17.5 23h29" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M18.5 23.5 L45.5 23.5 L42.5 63 Q42 68 37 68 L27 68 Q22 68 21.5 63 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M26.5 39c1.4-2 3.8-2 5.2 0" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><path d="M35 39c1.4-2 3.8-2 5.2 0" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><path d="M30 47c1.5 1.9 4.1 1.9 5.6 0" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M11 55c-1.2-4.4 1-8 4.3-9.3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M11 55c-4.4 1-6.8 5.3-5.6 9.8s6 6.8 10.2 5.4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 54c-3.3-1.1-6.6.9-7.4 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M13.3 50.8c-2.9-1.5-6.2-.3-7.4 2.3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M17 48.4c-2.4-2.2-5.7-1.9-7.4.4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       <span>Umore Ona</span>
     </a>
     <nav class="links" id="navLinks">
@@ -478,7 +478,7 @@ footer{border-top:2px solid var(--ink);padding:56px 0 32px;}
 
       <div class="menu-switch" role="tablist">
         <button class="menu-badge active" data-tab="desayunos">
-          <span class="dot"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13h14l-1.1 11.5A2.4 2.4 0 0 1 18.5 26.7h-5a2.4 2.4 0 0 1-2.4-2.2L8 13Z"/><path d="M6.5 13h17"/><path d="M22 15c2.4.4 4 1.7 4 3.6s-1.6 3.2-4 3.6"/></svg></span>
+          <span class="dot mascot-dot"><svg viewBox="0 0 64 76" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 15c1.5-3.2 5.8-5.5 14-5.5s12.5 2.3 14 5.5" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M16.5 19h31" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M17.5 23h29" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M18.5 23.5 L45.5 23.5 L42.5 63 Q42 68 37 68 L27 68 Q22 68 21.5 63 Z" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><path d="M26.5 39c1.4-2 3.8-2 5.2 0" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M35 39c1.4-2 3.8-2 5.2 0" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M30 47c1.5 1.9 4.1 1.9 5.6 0" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><path d="M11 55c-1.2-4.4 1-8 4.3-9.3" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M11 55c-4.4 1-6.8 5.3-5.6 9.8s6 6.8 10.2 5.4" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 54c-3.3-1.1-6.6.9-7.4 4.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M13.3 50.8c-2.9-1.5-6.2-.3-7.4 2.3" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M17 48.4c-2.4-2.2-5.7-1.9-7.4.4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
           <span class="label">Desayunos</span>
         </button>
         <button class="menu-badge" data-tab="picoteo">
@@ -673,7 +673,7 @@ footer{border-top:2px solid var(--ink);padding:56px 0 32px;}
   <div class="wrap">
     <div class="footer-top">
       <a href="#" class="footer-brand">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 15h16l-1.4 15.2A3 3 0 0 1 22.6 33H17.4a3 3 0 0 1-3-2.8L11 15Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 15h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M27 17c3 .5 5 2 5 4.5S30 25 27 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 64 76" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 15c1.5-3.2 5.8-5.5 14-5.5s12.5 2.3 14 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16.5 19h31" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M17.5 23h29" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M18.5 23.5 L45.5 23.5 L42.5 63 Q42 68 37 68 L27 68 Q22 68 21.5 63 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M26.5 39c1.4-2 3.8-2 5.2 0" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><path d="M35 39c1.4-2 3.8-2 5.2 0" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/><path d="M30 47c1.5 1.9 4.1 1.9 5.6 0" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M11 55c-1.2-4.4 1-8 4.3-9.3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M11 55c-4.4 1-6.8 5.3-5.6 9.8s6 6.8 10.2 5.4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 54c-3.3-1.1-6.6.9-7.4 4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M13.3 50.8c-2.9-1.5-6.2-.3-7.4 2.3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M17 48.4c-2.4-2.2-5.7-1.9-7.4.4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
         <span>Umore Ona</span>
       </a>
       <nav class="footer-nav">
