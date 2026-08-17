@@ -188,9 +188,17 @@ nav.links a:hover{color:var(--burgundy);}
   padding:14px 26px;border-radius:100px;
   font-family:'Work Sans',sans-serif;font-weight:700;font-size:.98rem;
   text-decoration:none;white-space:nowrap;border:2px solid var(--ink);
-  cursor:pointer;transition:transform 150ms var(--ease-out), background 180ms var(--ease-out);
+  cursor:pointer;
+  transition:transform 180ms var(--ease-out), background 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+  box-shadow:0 0 0 rgba(36,31,26,0);
 }
 .btn:active{transform:scale(.97) rotate(-1deg);}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{transform:translateY(-3px) rotate(-1deg);box-shadow:0 12px 20px -10px rgba(36,31,26,.4);}
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:reduce){
+  .btn:hover{transform:none;}
+}
 .btn-primary{background:var(--burgundy);color:#FBF4F2;border-color:var(--burgundy);}
 .btn-primary:hover{background:var(--burgundy-hover);border-color:var(--burgundy-hover);}
 :root[data-theme="dark"] .btn-primary{color:#241110;}
@@ -227,13 +235,7 @@ nav.links a:hover{color:var(--burgundy);}
   border:10px solid var(--paper);
   box-shadow:0 24px 46px -20px rgba(36,31,26,.4);
 }
-.hero-photo img{width:100%;height:100%;object-fit:cover;transition:transform 250ms var(--ease-out);}
-@media (hover:hover) and (pointer:fine){
-  .hero-photo:hover img{transform:scale(1.08);}
-}
-@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .hero-photo:hover img{animation:photoWiggle 480ms ease-in-out;}
-}
+.hero-photo img{width:100%;height:100%;object-fit:cover;}
 .tape{
   position:absolute;width:86px;height:34px;
   background:color-mix(in srgb, var(--sage) 55%, transparent);
@@ -355,9 +357,8 @@ section{padding:80px 0;}
   margin:0;border-radius:4px;overflow:hidden;
   border:10px solid var(--paper);box-shadow:0 18px 34px -16px rgba(36,31,26,.4);
   aspect-ratio:4/5;
-  transition:box-shadow 200ms var(--ease-out);
 }
-.collage-item img{width:100%;height:100%;object-fit:cover;transition:transform 250ms var(--ease-out);}
+.collage-item img{width:100%;height:100%;object-fit:cover;}
 /* one-time bouncy entrance, driven by the same [data-visible] the scroll reveal already sets */
 @media (prefers-reduced-motion:no-preference){
   .collage-item figure{
@@ -367,21 +368,6 @@ section{padding:80px 0;}
     transition:transform 850ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 200ms var(--ease-out);
     transform:rotate(0deg) scale(1);
   }
-}
-/* playful hover: photo lifts, zooms slightly, gives a little shake */
-@media (hover:hover) and (pointer:fine){
-  .collage-item:hover figure{
-    box-shadow:0 26px 42px -16px rgba(36,31,26,.5);
-  }
-  .collage-item:hover img{transform:scale(1.08);}
-}
-@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .collage-item:hover img{animation:photoWiggle 480ms ease-in-out;}
-}
-@keyframes photoWiggle{
-  0%,100%{transform:scale(1.08) rotate(0deg);}
-  25%{transform:scale(1.08) rotate(-4deg);}
-  75%{transform:scale(1.08) rotate(4deg);}
 }
 .collage-item:nth-child(1){transform:rotate(-3deg);margin-top:26px;}
 .collage-item:nth-child(2){transform:rotate(2deg);}
@@ -428,7 +414,11 @@ section{padding:80px 0;}
 .loc-card .btn-outline{color:var(--cream);}
 .loc-card .btn-outline:hover{background:rgba(243,239,228,.12);}
 .loc-card .btn-primary{background:var(--cream);color:var(--burgundy);border-color:var(--cream);}
-.loc-card .btn-primary:hover{background:#EADFC8;}
+.loc-card .btn-primary:hover{filter:brightness(0.93);}
+/* higher specificity than the generic dark-mode `.btn-primary{color:...}` override above,
+   so this card's own (already theme-correct) text color always wins */
+:root[data-theme="dark"] .loc-card .btn-primary{color:var(--burgundy);}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .loc-card .btn-primary{color:var(--burgundy);}}
 
 /* ---------- FOOTER ---------- */
 footer{border-top:2px solid var(--ink);padding:56px 0 32px;}
