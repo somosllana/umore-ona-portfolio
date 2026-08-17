@@ -125,7 +125,7 @@ h1,h2,h3{font-family:'Bagel Fat One',cursive;font-weight:400;line-height:1.06;le
   .hero-enter-4{animation-delay:260ms;}
   .hero-enter-photo{
     opacity:0;
-    animation:heroPhotoIn 750ms var(--ease-out) forwards;
+    animation:heroPhotoIn 850ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     animation-delay:120ms;
   }
   @keyframes heroRise{
@@ -133,8 +133,8 @@ h1,h2,h3{font-family:'Bagel Fat One',cursive;font-weight:400;line-height:1.06;le
     to{opacity:1;transform:translateY(0);}
   }
   @keyframes heroPhotoIn{
-    from{opacity:0;transform:rotate(3deg) translateY(18px) scale(.97);}
-    to{opacity:1;transform:rotate(3deg) translateY(0) scale(1);}
+    0%{opacity:0;transform:rotate(18deg) translateY(30px) scale(.8);}
+    100%{opacity:1;transform:rotate(3deg) translateY(0) scale(1);}
   }
 }
 
@@ -227,7 +227,13 @@ nav.links a:hover{color:var(--burgundy);}
   border:10px solid var(--paper);
   box-shadow:0 24px 46px -20px rgba(36,31,26,.4);
 }
-.hero-photo img{width:100%;height:100%;object-fit:cover;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;transition:transform 250ms var(--ease-out);}
+@media (hover:hover) and (pointer:fine){
+  .hero-photo:hover img{transform:scale(1.08);}
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .hero-photo:hover img{animation:photoWiggle 480ms ease-in-out;}
+}
 .tape{
   position:absolute;width:86px;height:34px;
   background:color-mix(in srgb, var(--sage) 55%, transparent);
@@ -349,8 +355,34 @@ section{padding:80px 0;}
   margin:0;border-radius:4px;overflow:hidden;
   border:10px solid var(--paper);box-shadow:0 18px 34px -16px rgba(36,31,26,.4);
   aspect-ratio:4/5;
+  transition:box-shadow 200ms var(--ease-out);
 }
-.collage-item img{width:100%;height:100%;object-fit:cover;}
+.collage-item img{width:100%;height:100%;object-fit:cover;transition:transform 250ms var(--ease-out);}
+/* one-time bouncy entrance, driven by the same [data-visible] the scroll reveal already sets */
+@media (prefers-reduced-motion:no-preference){
+  .collage-item figure{
+    transform:rotate(-16deg) scale(.75);
+  }
+  .collage-item[data-visible] figure{
+    transition:transform 850ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 200ms var(--ease-out);
+    transform:rotate(0deg) scale(1);
+  }
+}
+/* playful hover: photo lifts, zooms slightly, gives a little shake */
+@media (hover:hover) and (pointer:fine){
+  .collage-item:hover figure{
+    box-shadow:0 26px 42px -16px rgba(36,31,26,.5);
+  }
+  .collage-item:hover img{transform:scale(1.08);}
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .collage-item:hover img{animation:photoWiggle 480ms ease-in-out;}
+}
+@keyframes photoWiggle{
+  0%,100%{transform:scale(1.08) rotate(0deg);}
+  25%{transform:scale(1.08) rotate(-4deg);}
+  75%{transform:scale(1.08) rotate(4deg);}
+}
 .collage-item:nth-child(1){transform:rotate(-3deg);margin-top:26px;}
 .collage-item:nth-child(2){transform:rotate(2deg);}
 .collage-item:nth-child(3){transform:rotate(-1.5deg);margin-top:14px;}
